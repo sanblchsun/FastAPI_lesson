@@ -1,6 +1,6 @@
 from typing import Optional
 
-from pydantic import BaseModel, validator, Field
+from pydantic import BaseModel, validator, Field, ConfigDict
 
 
 class Book(BaseModel):
@@ -10,6 +10,7 @@ class Book(BaseModel):
 
 class BookOut(Book):
     id: int
+    model_config = ConfigDict(from_attributes=True)
 
 
 class BookID(BaseModel):
